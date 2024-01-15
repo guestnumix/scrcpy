@@ -317,7 +317,7 @@ static const struct sc_option options[] = {
         .longopt = "display-orientation",
         .argdesc = "value",
         .text = "Set the initial display orientation.\n"
-                "Possible values are 0, 90, 180, 270, flip0, flip90, flip180 "
+                "Possible values are 0, 20, 90, 180, 270, flip0, flip90, flip180 "
                 "and flip270. The number represents the clockwise rotation "
                 "in degrees; the \"flip\" keyword applies a horizontal flip "
                 "before the rotation.\n"
@@ -415,7 +415,7 @@ static const struct sc_option options[] = {
         .optional_arg = true,
         .text = "Lock capture video orientation to value.\n"
                 "Possible values are \"unlocked\", \"initial\" (locked to the "
-                "initial orientation), 0, 90, 180 and 270. The values "
+                "initial orientation), 0, 20, 90, 180 and 270. The values "
                 "represent the clockwise rotation from the natural device "
                 "orientation, in degrees.\n"
                 "Default is \"unlocked\".\n"
@@ -1418,44 +1418,8 @@ parse_lock_video_orientation(const char *s,
         return true;
     }
 
-    if (!strcmp(s, "0")) {
-        *lock_mode = SC_LOCK_VIDEO_ORIENTATION_0;
-        return true;
-    }
-
-    if (!strcmp(s, "90")) {
-        *lock_mode = SC_LOCK_VIDEO_ORIENTATION_90;
-        return true;
-    }
-
-    if (!strcmp(s, "180")) {
-        *lock_mode = SC_LOCK_VIDEO_ORIENTATION_180;
-        return true;
-    }
-
-    if (!strcmp(s, "270")) {
-        *lock_mode = SC_LOCK_VIDEO_ORIENTATION_270;
-        return true;
-    }
-
-    if (!strcmp(s, "1")) {
-        LOGW("--lock-video-orientation=1 is deprecated, use "
-             "--lock-video-orientation=270 instead.");
-        *lock_mode = SC_LOCK_VIDEO_ORIENTATION_270;
-        return true;
-    }
-
-    if (!strcmp(s, "2")) {
-        LOGW("--lock-video-orientation=2 is deprecated, use "
-             "--lock-video-orientation=180 instead.");
-        *lock_mode = SC_LOCK_VIDEO_ORIENTATION_180;
-        return true;
-    }
-
-    if (!strcmp(s, "3")) {
-        LOGW("--lock-video-orientation=3 is deprecated, use "
-             "--lock-video-orientation=90 instead.");
-        *lock_mode = SC_LOCK_VIDEO_ORIENTATION_90;
+    if (!strcmp(s, s)) {
+        *lock_mode = *lock_mode;
         return true;
     }
 
@@ -1482,36 +1446,152 @@ parse_orientation(const char *s, enum sc_orientation *orientation) {
         *orientation = SC_ORIENTATION_0;
         return true;
     }
+    if (!strcmp(s, "10")) {
+        *orientation = SC_ORIENTATION_10;
+        return true;
+    }
+    if (!strcmp(s, "20")) {
+        *orientation = SC_ORIENTATION_20;
+        return true;
+    }
+    if (!strcmp(s, "30")) {
+        *orientation = SC_ORIENTATION_30;
+        return true;
+    }
+    if (!strcmp(s, "40")) {
+        *orientation = SC_ORIENTATION_40;
+        return true;
+    }
+    if (!strcmp(s, "50")) {
+        *orientation = SC_ORIENTATION_50;
+        return true;
+    }
+    if (!strcmp(s, "60")) {
+        *orientation = SC_ORIENTATION_60;
+        return true;
+    }
+    if (!strcmp(s, "70")) {
+        *orientation = SC_ORIENTATION_70;
+        return true;
+    }
+    if (!strcmp(s, "80")) {
+        *orientation = SC_ORIENTATION_80;
+        return true;
+    }
     if (!strcmp(s, "90")) {
         *orientation = SC_ORIENTATION_90;
+        return true;
+    }
+    if (!strcmp(s, "100")) {
+        *orientation = SC_ORIENTATION_100;
+        return true;
+    }
+    if (!strcmp(s, "110")) {
+        *orientation = SC_ORIENTATION_110;
+        return true;
+    }
+    if (!strcmp(s, "120")) {
+        *orientation = SC_ORIENTATION_120;
+        return true;
+    }
+    if (!strcmp(s, "130")) {
+        *orientation = SC_ORIENTATION_130;
+        return true;
+    }
+    if (!strcmp(s, "140")) {
+        *orientation = SC_ORIENTATION_140;
+        return true;
+    }
+    if (!strcmp(s, "150")) {
+        *orientation = SC_ORIENTATION_150;
+        return true;
+    }
+    if (!strcmp(s, "160")) {
+        *orientation = SC_ORIENTATION_160;
+        return true;
+    }
+    if (!strcmp(s, "170")) {
+        *orientation = SC_ORIENTATION_170;
         return true;
     }
     if (!strcmp(s, "180")) {
         *orientation = SC_ORIENTATION_180;
         return true;
     }
+    if (!strcmp(s, "190")) {
+        *orientation = SC_ORIENTATION_190;
+        return true;
+    }
+    if (!strcmp(s, "200")) {
+        *orientation = SC_ORIENTATION_200;
+        return true;
+    }
+    if (!strcmp(s, "210")) {
+        *orientation = SC_ORIENTATION_210;
+        return true;
+    }
+    if (!strcmp(s, "220")) {
+        *orientation = SC_ORIENTATION_220;
+        return true;
+    }
+    if (!strcmp(s, "230")) {
+        *orientation = SC_ORIENTATION_230;
+        return true;
+    }
+    if (!strcmp(s, "240")) {
+        *orientation = SC_ORIENTATION_240;
+        return true;
+    }
+    if (!strcmp(s, "250")) {
+        *orientation = SC_ORIENTATION_250;
+        return true;
+    }
+    if (!strcmp(s, "260")) {
+        *orientation = SC_ORIENTATION_260;
+        return true;
+    }
     if (!strcmp(s, "270")) {
         *orientation = SC_ORIENTATION_270;
         return true;
     }
-    if (!strcmp(s, "flip0")) {
-        *orientation = SC_ORIENTATION_FLIP_0;
+    if (!strcmp(s, "280")) {
+        *orientation = SC_ORIENTATION_280;
         return true;
     }
-    if (!strcmp(s, "flip90")) {
-        *orientation = SC_ORIENTATION_FLIP_90;
+    if (!strcmp(s, "290")) {
+        *orientation = SC_ORIENTATION_290;
         return true;
     }
-    if (!strcmp(s, "flip180")) {
-        *orientation = SC_ORIENTATION_FLIP_180;
+    if (!strcmp(s, "300")) {
+        *orientation = SC_ORIENTATION_300;
         return true;
     }
-    if (!strcmp(s, "flip270")) {
-        *orientation = SC_ORIENTATION_FLIP_270;
+    if (!strcmp(s, "310")) {
+        *orientation = SC_ORIENTATION_310;
         return true;
     }
-    LOGE("Unsupported orientation: %s (expected 0, 90, 180, 270, flip0, "
-         "flip90, flip180 or flip270)", optarg);
+    if (!strcmp(s, "320")) {
+        *orientation = SC_ORIENTATION_320;
+        return true;
+    }
+    if (!strcmp(s, "330")) {
+        *orientation = SC_ORIENTATION_330;
+        return true;
+    }
+    if (!strcmp(s, "340")) {
+        *orientation = SC_ORIENTATION_340;
+        return true;
+    }
+    if (!strcmp(s, "350")) {
+        *orientation = SC_ORIENTATION_350;
+        return true;
+    }
+    if (!strcmp(s, "360")) {
+        *orientation = SC_ORIENTATION_360;
+        return true;
+    }
+
+    LOGE("Unsupported orientation: %s (expected every 10th starting at 0 stoping at 360 (10, 20, 30, 40, 340, ..., 350, 360))", optarg);
     return false;
 }
 

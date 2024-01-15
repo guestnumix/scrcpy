@@ -254,12 +254,17 @@ sc_display_render(struct sc_display *display, const SDL_Rect *geometry,
             return SC_DISPLAY_RESULT_ERROR;
         }
     } else {
-        unsigned cw_rotation = sc_orientation_get_rotation(orientation);
-        double angle = 90 * cw_rotation;
+        //unsigned cw_rotation = sc_orientation_get_rotation(orientation);
+        //double angle = 10 * cw_rotation;
+
+        //Try remake angle
+        double angle = getOrientationValue(orientation);
+        
+
 
         const SDL_Rect *dstrect = NULL;
         SDL_Rect rect;
-        if (sc_orientation_is_swap(orientation)) {
+        /* if (sc_orientation_is_swap(orientation)) {
             rect.x = geometry->x + (geometry->w - geometry->h) / 2;
             rect.y = geometry->y + (geometry->h - geometry->w) / 2;
             rect.w = geometry->h;
@@ -267,13 +272,15 @@ sc_display_render(struct sc_display *display, const SDL_Rect *geometry,
             dstrect = &rect;
         } else {
             dstrect = geometry;
-        }
+        }*/
 
         SDL_RendererFlip flip = sc_orientation_is_mirror(orientation)
                               ? SDL_FLIP_HORIZONTAL : 0;
 
-        int ret = SDL_RenderCopyEx(renderer, texture, NULL, dstrect, angle,
-                                   NULL, flip);
+        const double newRotation = newOrientationVariableMy;
+
+        int ret = SDL_RenderCopyEx(renderer, texture, NULL, dstrect, 
+                        angle, NULL, SDL_FLIP_NONE);
         if (ret) {
             LOGE("Could not render texture: %s", SDL_GetError());
             return SC_DISPLAY_RESULT_ERROR;
@@ -283,3 +290,4 @@ sc_display_render(struct sc_display *display, const SDL_Rect *geometry,
     SDL_RenderPresent(display->renderer);
     return SC_DISPLAY_RESULT_OK;
 }
+

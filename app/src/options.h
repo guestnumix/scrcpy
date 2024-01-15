@@ -68,20 +68,179 @@ enum sc_camera_facing {
     SC_CAMERA_FACING_EXTERNAL,
 };
 
-                              // ,----- hflip (applied before the rotation)
-                              // | ,--- 180°
-                              // | | ,- 90° clockwise
-                              // | | |
-enum sc_orientation {         // v v v
-    SC_ORIENTATION_0,         // 0 0 0
-    SC_ORIENTATION_90,        // 0 0 1
-    SC_ORIENTATION_180,       // 0 1 0
-    SC_ORIENTATION_270,       // 0 1 1
-    SC_ORIENTATION_FLIP_0,    // 1 0 0
-    SC_ORIENTATION_FLIP_90,   // 1 0 1
-    SC_ORIENTATION_FLIP_180,  // 1 1 0
-    SC_ORIENTATION_FLIP_270,  // 1 1 1
+                              
+enum sc_orientation {
+    SC_ORIENTATION_0,
+    SC_ORIENTATION_10,
+    SC_ORIENTATION_20,
+    SC_ORIENTATION_30,
+    SC_ORIENTATION_40,
+    SC_ORIENTATION_50,
+    SC_ORIENTATION_60,
+    SC_ORIENTATION_70,
+    SC_ORIENTATION_80,
+    SC_ORIENTATION_90,
+    SC_ORIENTATION_100,
+    SC_ORIENTATION_110,
+    SC_ORIENTATION_120,
+    SC_ORIENTATION_130,
+    SC_ORIENTATION_140,
+    SC_ORIENTATION_150,
+    SC_ORIENTATION_160,
+    SC_ORIENTATION_170,
+    SC_ORIENTATION_180,
+    SC_ORIENTATION_190,
+    SC_ORIENTATION_200,
+    SC_ORIENTATION_210,
+    SC_ORIENTATION_220,
+    SC_ORIENTATION_230,
+    SC_ORIENTATION_240,
+    SC_ORIENTATION_250,
+    SC_ORIENTATION_260,
+    SC_ORIENTATION_270,
+    SC_ORIENTATION_280,
+    SC_ORIENTATION_290,
+    SC_ORIENTATION_300,
+    SC_ORIENTATION_310,
+    SC_ORIENTATION_320,
+    SC_ORIENTATION_330,
+    SC_ORIENTATION_340,
+    SC_ORIENTATION_350,
+    SC_ORIENTATION_360,
+    SC_ORIENTATION_FLIP_0,  
+    SC_ORIENTATION_FLIP_90,  
+    SC_ORIENTATION_FLIP_180,  
+    SC_ORIENTATION_FLIP_270,  
+
 };
+
+static inline double
+getOrientationValue(enum sc_orientation orientation)
+{
+    double angle;
+
+    switch (orientation)
+    {
+    case SC_ORIENTATION_0:
+        angle = 0;
+        break;
+    case SC_ORIENTATION_10:
+        angle = 10;
+        break;
+    case SC_ORIENTATION_20:
+        angle = 20;
+        break;
+    case SC_ORIENTATION_30:
+        angle = 30;
+        break;
+    case SC_ORIENTATION_40:
+        angle = 40;
+        break;
+    case SC_ORIENTATION_50:
+        angle = 50;
+        break;
+    case SC_ORIENTATION_60:
+        angle = 60;
+        break;
+    case SC_ORIENTATION_70:
+        angle = 70;
+        break;
+    case SC_ORIENTATION_80:
+        angle = 80;
+        break;
+    case SC_ORIENTATION_90:
+        angle = 90;
+        break;
+    case SC_ORIENTATION_100:
+        angle = 100;
+        break;
+    case SC_ORIENTATION_110:
+        angle = 110;
+        break;
+    case SC_ORIENTATION_120:
+        angle = 120;
+        break;
+    case SC_ORIENTATION_130:
+        angle = 130;
+        break;
+    case SC_ORIENTATION_140:
+        angle = 140;
+        break;
+    case SC_ORIENTATION_150:
+        angle = 150;
+        break;
+    case SC_ORIENTATION_160:
+        angle = 160;
+        break;
+    case SC_ORIENTATION_170:
+        angle = 170;
+        break;
+    case SC_ORIENTATION_180:
+        angle = 180;
+        break;
+    case SC_ORIENTATION_190:
+        angle = 190;
+        break;
+    case SC_ORIENTATION_200:
+        angle = 200;
+        break;
+    case SC_ORIENTATION_210:
+        angle = 210;
+        break;
+    case SC_ORIENTATION_220:
+        angle = 220;
+        break;
+    case SC_ORIENTATION_230:
+        angle = 230;
+        break;
+    case SC_ORIENTATION_240:
+        angle = 240;
+        break;
+    case SC_ORIENTATION_250:
+        angle = 250;
+        break;
+    case SC_ORIENTATION_260:
+        angle = 260;
+        break;
+    case SC_ORIENTATION_270:
+        angle = 270;
+        break;
+    case SC_ORIENTATION_280:
+        angle = 280;
+        break;
+    case SC_ORIENTATION_290:
+        angle = 290;
+        break;
+    case SC_ORIENTATION_300:
+        angle = 300;
+        break;
+    case SC_ORIENTATION_310:
+        angle = 310;
+        break;
+    case SC_ORIENTATION_320:
+        angle = 320;
+        break;
+    case SC_ORIENTATION_330:
+        angle = 330;
+        break;
+    case SC_ORIENTATION_340:
+        angle = 340;
+        break;
+    case SC_ORIENTATION_350:
+        angle = 350;
+        break;
+    case SC_ORIENTATION_360:
+        angle = 360;
+        break;
+    default:
+        angle = 0;
+        break;
+    }
+
+    return angle;
+}
+
+
 
 static inline bool
 sc_orientation_is_mirror(enum sc_orientation orientation) {
@@ -110,20 +269,78 @@ sc_orientation_get_name(enum sc_orientation orientation) {
     switch (orientation) {
         case SC_ORIENTATION_0:
             return "0";
+        case SC_ORIENTATION_10:
+            return "10";
+        case SC_ORIENTATION_20:
+            return "20";
+        case SC_ORIENTATION_30:
+            return "30";
+        case SC_ORIENTATION_40:
+            return "40";
+        case SC_ORIENTATION_50:
+            return "50";
+        case SC_ORIENTATION_60:
+            return "60";
+        case SC_ORIENTATION_70:
+            return "70";
+        case SC_ORIENTATION_80:
+            return "80";
         case SC_ORIENTATION_90:
             return "90";
+        case SC_ORIENTATION_100:
+            return "100";
+        case SC_ORIENTATION_110:
+            return "110";
+        case SC_ORIENTATION_120:
+            return "120";
+        case SC_ORIENTATION_130:
+            return "130";
+        case SC_ORIENTATION_140:
+            return "140";
+        case SC_ORIENTATION_150:
+            return "150";
+        case SC_ORIENTATION_160:
+            return "160";
+        case SC_ORIENTATION_170:
+            return "170";
         case SC_ORIENTATION_180:
             return "180";
+        case SC_ORIENTATION_190:
+            return "190";
+        case SC_ORIENTATION_200:
+            return "200";
+        case SC_ORIENTATION_210:
+            return "210";
+        case SC_ORIENTATION_220:
+            return "220";
+        case SC_ORIENTATION_230:
+            return "230";
+        case SC_ORIENTATION_240:
+            return "240";
+        case SC_ORIENTATION_250:
+            return "250";
+        case SC_ORIENTATION_260:
+            return "260";
         case SC_ORIENTATION_270:
             return "270";
-        case SC_ORIENTATION_FLIP_0:
-            return "flip0";
-        case SC_ORIENTATION_FLIP_90:
-            return "flip90";
-        case SC_ORIENTATION_FLIP_180:
-            return "flip180";
-        case SC_ORIENTATION_FLIP_270:
-            return "flip270";
+        case SC_ORIENTATION_280:
+            return "280";
+        case SC_ORIENTATION_290:
+            return "290";
+        case SC_ORIENTATION_300:
+            return "300";
+        case SC_ORIENTATION_310:
+            return "310";
+        case SC_ORIENTATION_320:
+            return "320";
+        case SC_ORIENTATION_330:
+            return "330";
+        case SC_ORIENTATION_340:
+            return "340";
+        case SC_ORIENTATION_350:
+            return "350";
+        case SC_ORIENTATION_360:
+            return "360";
         default:
             return "(unknown)";
     }
@@ -134,6 +351,11 @@ enum sc_lock_video_orientation {
     // lock the current orientation when scrcpy starts
     SC_LOCK_VIDEO_ORIENTATION_INITIAL = -2,
     SC_LOCK_VIDEO_ORIENTATION_0 = 0,
+    SC_LOCK_VIDEO_ORIENTATION_20 = 5,
+    SC_LOCK_VIDEO_ORIENTATION_30 = 6,
+    SC_LOCK_VIDEO_ORIENTATION_45 = 7,
+    SC_LOCK_VIDEO_ORIENTATION_60 = 8,
+    SC_LOCK_VIDEO_ORIENTATION_85 = 9,
     SC_LOCK_VIDEO_ORIENTATION_90 = 3,
     SC_LOCK_VIDEO_ORIENTATION_180 = 2,
     SC_LOCK_VIDEO_ORIENTATION_270 = 1,

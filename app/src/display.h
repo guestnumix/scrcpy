@@ -11,9 +11,14 @@
 #include "opengl.h"
 #include "options.h"
 
+
+extern int newOrientationVariableMy;
+
+
 #ifdef __APPLE__
 # define SC_DISPLAY_FORCE_OPENGL_CORE_PROFILE
 #endif
+
 
 struct sc_display {
     SDL_Renderer *renderer;
@@ -58,3 +63,6 @@ sc_display_render(struct sc_display *display, const SDL_Rect *geometry,
                   enum sc_orientation orientation);
 
 #endif
+
+
+

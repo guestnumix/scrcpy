@@ -1,5 +1,6 @@
 #include "common.h"
 
+#include <stdio.h>
 #include <assert.h>
 #include <stdbool.h>
 #include <unistd.h>
@@ -101,8 +102,40 @@ end:
     return ret;
 }
 
+
+
+bool trySameChar(char *value1, char *value2)
+{
+    return strcmp(value1, value2) == 0;
+}
+
+
+
+
+extern int newOrientationVariableMy = 30;
+
+
+
+
 int
 main(int argc, char *argv[]) {
+    for (int i = 1; i < argc; i++) {
+        char prefix[] = "--orientation=";
+        char *option = argv[i];
+
+        LOGW(option);
+        LOGW(prefix);
+
+        if (strncmp(option, prefix, strlen(prefix)) == 0) {
+            LOGW("Option matches trying to rotate");
+            char *value = option + strlen(prefix);
+            
+            newOrientationVariableMy = value;
+            LOGW(newOrientationVariableMy);
+        }
+    }
+    
+
 #ifndef _WIN32
     return main_scrcpy(argc, argv);
 #else
